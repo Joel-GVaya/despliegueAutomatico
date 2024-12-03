@@ -14,7 +14,8 @@ class Equip extends Component
     public function __construct(
         public string $nom,
         public string $estadi,
-        public int $titols ) { }
+        public int $titols,
+        public ?string $escut ) { }
 
     /**
      * Get the view / contents that represent the component.

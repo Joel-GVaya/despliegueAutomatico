@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', "Pagina equip Femeni" )
 @section('content')
-<form action="{{ route('equips.update', $equip->id) }}" method="POST" class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+<form action="{{ route('equips.update', $equip->id) }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
     @csrf
     @method('PUT')
 
@@ -11,7 +11,7 @@
             class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 
             @error('nom') border-red-500 @enderror">
         @error('nom')
-            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
     </div>
 
@@ -21,7 +21,7 @@
             class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 
             @error('titols') border-red-500 @enderror">
         @error('titols')
-            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
     </div>
 
@@ -31,14 +31,23 @@
             class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 
             @error('estadi_id') border-red-500 @enderror">
             @foreach ($estadis as $estadi)
-                <option value="{{ $estadi->id }}" {{ $estadi->id == $equip->estadi_id ? 'selected' : '' }}>
-                    {{ $estadi->nom }}
-                </option>
+            <option value="{{ $estadi->id }}" {{ $estadi->id == $equip->estadi_id ? 'selected' : '' }}>
+                {{ $estadi->nom }}
+            </option>
             @endforeach
         </select>
         @error('estadi_id')
-            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
+    </div>
+    <div class="mb-4">
+        <label for="escut" class="block text-sm font-medium text-gray-700 mb-1">Escut:</label>
+        <input type="file" name="escut" id="escut"
+            class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        @if ($equip->escut)
+        <p class="mt-2 text-sm text-gray-500">Escut actual:</p>
+        <img src="{{ asset('storage/' . $equip->escut) }}" alt="Escut de {{ $equip->nom }}" class="h-16 mt-2">
+        @endif
     </div>
 
     <button type="submit"
@@ -46,4 +55,4 @@
         Actualitzar Equip
     </button>
 </form>
-    @endsection
+@endsection

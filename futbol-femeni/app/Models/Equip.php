@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equip extends Model
 {
 
-    protected $fillable = ['nom', 'estadi_id', 'titols'];
+    protected $fillable = ['nom', 'estadi_id', 'titols', 'escut'];
 
     public function estadi()
     {

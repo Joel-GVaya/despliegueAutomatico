@@ -4,5 +4,6 @@
 <x-equip
     :nom="$equip->nom"
     :estadi="$equip->estadi->nom"
-    :titols="$equip->titols" />
+    :titols="$equip->titols"
+    :escut="$equip->escut" />
 @endsection

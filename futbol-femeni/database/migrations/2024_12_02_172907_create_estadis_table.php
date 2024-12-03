@@ -16,7 +16,7 @@ return new class extends Migration
         $table->string('nom')->unique();
         $table->integer('capacitat');
         $table->string('ciutat');
-        $table->string('equipPrincipal');
+        $table->string('equip');
         $table->timestamps();
     });
 }

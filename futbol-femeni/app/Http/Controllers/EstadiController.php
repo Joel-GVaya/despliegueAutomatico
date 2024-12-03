@@ -8,32 +8,13 @@ use App\Models\Estadi;
 class EstadiController extends Controller
 {
 
-    protected $estadiosFutbolFemeni = [
-        [
-        'nom' => 'Estadi Johan Cruyff',
-        'ciutat' => 'Sant Joan Despí',
-        'capacitat' => 6000,
-        'equip' => 'FC Barcelona Femení'
-        ],
-        [
-        'nom' => 'Centro Deportivo Wanda Alcalá de Henares',
-        'ciutat' => 'Alcalá de Henares',
-        'capacitat' => 2800,
-        'equip' => 'Atlètic de Madrid Femení'
-        ],
-        [
-        'nom' => 'Estadio Alfredo Di Stéfano',
-        'ciutat' => 'Madrid',
-        'capacitat' => 6000,
-        'equip' => 'Real Madrid Femení'
-        ]
-    ];
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $estadiosFutbolFemeni = $this->estadiosFutbolFemeni;
+        $estadiosFutbolFemeni = Estadi::all();
         return view('estadis.index', compact('estadiosFutbolFemeni'));
     }
 
@@ -48,9 +29,7 @@ class EstadiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id) {
-        $estadiosFutbolFemeni = $this->estadiosFutbolFemeni;
-        $estadi = $this->estadiosFutbolFemeni[$id];
+    public function show(Estadi $estadi) {
         return view('estadis.show', compact('estadi'));
     }
 
