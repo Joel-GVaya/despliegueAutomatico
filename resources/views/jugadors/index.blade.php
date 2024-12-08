@@ -3,7 +3,7 @@
 @section('title', "Guia de Jugadores")
 
 @section('content')
-<h1 class="text-3xl font-bold text-blue-800 mb-6">Guia de Jugadors</h1>
+<h1 class="text-3xl font-bold text-blue-800 mb-6">Guia de Jugadors Editada</h1>
 <table class="w-full border-collapse border border-gray-300">
     <thead class="bg-gray-200">
     <tr>
